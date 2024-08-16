@@ -49,3 +49,13 @@ table th{
 .mat-column-action{
     width: 12rem;
 }
+
+table tr:hover{
+    background-color: rgba(253, 236, 236, 0.1);
+    transform: scale(1.01);
+    overflow: hidden;
+}
+
+::ng-deep .mat-sort-header-arrow {
+    color: #fff !important;
+}
