@@ -1,0 +1,42 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card" >
+        <div class="card-header">
+           <div class="card-title">Add Profile</div>
+        </div>
+        <div class="card-body">
+            <form [formGroup] = 'profileFormGroup!' (ngSubmit)="submit(profileFormGroup?.value)" autocomplete="off" novalidate>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <em *ngIf="(!isNameValid() || isNameInvalidToSubmit()) && name?.errors?.['required']">Name is required</em>
+                    <em *ngIf="(!isNameValid() || isNameInvalidToSubmit()) && name?.errors?.['minlength'] && !name?.errors?.['pattern']">Name should contain more than 3 letters </em>
+                    <em *ngIf="(!isNameValid() || isNameInvalidToSubmit()) && name?.errors?.['maxlength'] && !name?.errors?.['pattern']">Name should not contain more than 50 letters</em>
+                    <em *ngIf="(!isNameValid() || isNameInvalidToSubmit()) && name?.errors?.['pattern']">Name should not contain digits</em>
+                    <input id="name" name="name" type="text" class="form-control" formControlName="name" placeholder="Name..."/>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <em *ngIf="(!isDobValid() || isDobInvalidToSubmit()) && dob?.errors?.['required']">Dob is required</em>
+                    <em *ngIf="(!isDobValid() || isDobInvalidToSubmit()) && dob?.errors?.['dobInvalid']">Dob should not be a future value</em>
+                    <input id="dob" name="dob" type="date" class="form-control" formControlName="dob" placeholder="Dob..."/>
+                </div>
+                <div class="form-group">
+                    <em *ngIf="!isGenderValid() || isGenderInvalidToSubmit()">Gender is requrired</em>
+                    <input id="male" name="gender" type="radio" class="form-check-input"  formControlName="gender" value="Male"/>
+                    <label for="gender" style="margin-left: 5px;">Male
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input id="female" name="gender" type="radio" class="form-check-input"  formControlName="gender" value="Female"/>
+                    <label for="gender" style="margin-left: 5px; margin-top: 2px;" >Female
+                    </label>
+                </div>
+                <div class="form-group">
+                <div class="button-container">
+                <button type="submit"class="btn btn-primary">Save</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

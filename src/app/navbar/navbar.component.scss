@@ -1,0 +1,50 @@
+.nav-link{
+    width: 80px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    
+}
+
+@media (max-width: 990px){
+    .nav-link{
+        width: auto;
+    }
+}
+
+.nav-link:hover{
+    background-color: rgba(226, 19, 19, 0.993);
+    color: white;
+    mat-icon{
+        color: white;
+    }
+}
+
+.nav-link.active:hover{
+    cursor: not-allowed;
+    background-color: rgba(90, 83, 83, 0.644);
+    color: white;
+    mat-icon{
+        color: white;
+    }
+}
+
+.navbar{
+    border-bottom:3px solid gold;
+}
+
+.add-link{
+    background-color: rgb(11, 163, 11);
+    border-radius: 15px;
+    .nav-link{
+        color: white;
+    }
+    mat-icon{
+        font-size: 23px;
+        position: absolute;
+        color: white; 
+        background-color: none;       
+        padding: 0px;  
+    }
+}
